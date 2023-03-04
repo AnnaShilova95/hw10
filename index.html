@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="info">
+
+    </div>
+    <script src="data.js"></script>
+    <script>
+        const dataEl = JSON.parse(data);
+        console.log(dataEl);
+        
+        for (let i = 0; i < 2; i++) {
+        
+            
+        
+        
+        const infoEl = document.querySelector('.info');
+        const cardEl = document.createElement('div');
+        cardEl.classList.add('actors');
+        infoEl.appendChild(cardEl);
+
+        cardEl.style.padding = "90px";
+        cardEl.style.border = "20px solid pink";
+        cardEl.style.width = "270px";
+
+        const actorImgEl = document.createElement('img');
+        actorImgEl.classList.add('actors__img');
+        actorImgEl.setAttribute('alt', dataEl.results[i].alt);
+        actorImgEl.src = dataEl.results[i].image;
+        cardEl.appendChild(actorImgEl);
+
+        const actorEl = document.createElement('p');
+        actorEl.classList.add('actors__actor');
+        actorEl.textContent = dataEl.results[i].actor;
+        cardEl.appendChild(actorEl);
+
+        const actorNameEl = document.createElement('p');
+        actorNameEl.classList.add('actors__name');
+        actorNameEl.textContent = dataEl.results[i].name;
+        cardEl.appendChild(actorNameEl);
+
+        const actorRoleEl = document.createElement('p');
+        actorRoleEl.classList.add('actors__role');
+        actorRoleEl.textContent = dataEl.results[i].role;
+        cardEl.appendChild(actorRoleEl);
+       
+    }
+    </script>
+</body>
+</html>
